@@ -4,13 +4,13 @@ import "./App.css";
 function App() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [fullName, setFullName] = useState("");
+  const [fullName, setFullName] = useState(null); // Change to null so it doesn't show empty state
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     if (!firstName.trim() || !lastName.trim()) {
-      setFullName(""); // Ensure full name is not displayed on invalid input
+      setFullName(null); // Prevent displaying an empty name
       return;
     }
 
@@ -41,9 +41,9 @@ function App() {
         </div>
         <button type="submit">Submit</button>
       </form>
-      {/* Ensuring text is always present */}
-      <h3>Full Name Display:</h3>
-      <p>{fullName || "No name entered yet"}</p>
+
+      {/* Show Full Name only if it's not null */}
+      {fullName && <h3>Full Name: {fullName}</h3>}
     </div>
   );
 }
