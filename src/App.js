@@ -9,9 +9,8 @@ function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Prevent submission if any field is empty
     if (!firstName.trim() || !lastName.trim()) {
-      setFullName(""); // Ensure full name is not displayed
+      setFullName(""); // Ensure full name is not displayed on invalid input
       return;
     }
 
@@ -42,7 +41,9 @@ function App() {
         </div>
         <button type="submit">Submit</button>
       </form>
-      {fullName && <h3>Full Name: {fullName}</h3>}
+      {/* Ensuring text is always present */}
+      <h3>Full Name Display:</h3>
+      <p>{fullName || "No name entered yet"}</p>
     </div>
   );
 }
