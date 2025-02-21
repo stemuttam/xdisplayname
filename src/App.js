@@ -19,7 +19,7 @@ function App() {
 
   return (
     <div className="container">
-      <h2>Full Name Generator</h2>
+      <h2>Full Name Display</h2>
       <form onSubmit={handleSubmit}>
         <div>
           <label>First Name:</label>
