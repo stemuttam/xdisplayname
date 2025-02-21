@@ -8,9 +8,14 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (firstName && lastName) {
-      setFullName(`${firstName} ${lastName}`);
+
+    // Prevent submission if any field is empty
+    if (!firstName.trim() || !lastName.trim()) {
+      setFullName(""); // Ensure full name is not displayed
+      return;
     }
+
+    setFullName(`${firstName} ${lastName}`);
   };
 
   return (
@@ -35,9 +40,7 @@ function App() {
             required
           />
         </div>
-        <button type="submit" disabled={!firstName || !lastName}>
-          Submit
-        </button>
+        <button type="submit">Submit</button>
       </form>
       {fullName && <h3>Full Name: {fullName}</h3>}
     </div>
